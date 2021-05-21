@@ -2,6 +2,8 @@ import 'package:challange4_app/models/data.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
+  final bool isdata;
+  HomePage({this.isdata});
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -80,8 +82,7 @@ class _HomePageState extends State<HomePage> {
                                                       vertical: 10),
                                               child: Row(
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
+                                                    MainAxisAlignment.start,
                                                 children: [
                                                   CircleAvatar(
                                                     radius: 20,
@@ -91,40 +92,50 @@ class _HomePageState extends State<HomePage> {
                                                       color: Colors.white,
                                                     ),
                                                   ),
-                                                  Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text(
-                                                        card.title,
-                                                        style: TextStyle(
-                                                            fontSize: 18,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w600),
-                                                      ),
-                                                      Text(
-                                                        card.subtitle,
-                                                        style: TextStyle(
-                                                            fontSize: 13),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  CircleAvatar(
-                                                    radius: 20,
-                                                    backgroundColor: Colors.red,
-                                                    child: CircleAvatar(
-                                                      radius: 18,
-                                                      backgroundColor:
-                                                          Colors.white,
-                                                      child: Text(
-                                                        card.number.toString(),
-                                                        style: TextStyle(
-                                                            color: Colors.red),
-                                                      ),
+                                                  SizedBox(width: 10),
+                                                  Flexible(
+                                                    flex: 3,
+                                                    fit: FlexFit.tight,
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          card.title,
+                                                          style: TextStyle(
+                                                              fontSize: 18,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600),
+                                                        ),
+                                                        Text(
+                                                          card.subtitle,
+                                                          style: TextStyle(
+                                                              fontSize: 13),
+                                                        )
+                                                      ],
                                                     ),
                                                   ),
+                                                  card.number != null
+                                                      ? CircleAvatar(
+                                                          radius: 20,
+                                                          backgroundColor:
+                                                              Colors.red,
+                                                          child: CircleAvatar(
+                                                            radius: 18,
+                                                            backgroundColor:
+                                                                Colors.white,
+                                                            child: Text(
+                                                              card.number
+                                                                  .toString(),
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .red),
+                                                            ),
+                                                          ),
+                                                        )
+                                                      : Container()
                                                 ],
                                               ),
                                             ),
